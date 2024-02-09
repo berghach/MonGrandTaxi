@@ -18,9 +18,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'fullname',
         'email',
         'password',
+        'user_role'
     ];
 
     /**
@@ -42,4 +43,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function __construct(array $attributes = []) {
+        parent::__construct($attributes);
+        $this->attributes['user_role'] = $this->getUserRole();
+    }
+
+    // Common methods and properties for all users
+
+    private function getUserRole() {
+        $class = strtolower(class_basename($this));
+        // You may have a mapping for class names to enum values
+        $roleMapping = [
+            'admin' => 'admin',
+            'passenger' => 'passenger',
+            'driver' => 'driver',
+        ];
+
+        return $roleMapping[$class] ?? 'passenger';
+    }
 }
