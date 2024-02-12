@@ -4,14 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="./resources/css/output.css"> -->
-    <link rel="stylesheet" href="./resources/css/app.css">
+    <link rel="stylesheet" href="./public/css/output.css">
+    <link rel="stylesheet" href="">
 
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
-<body class=" bg-orange-500">
-    <div class=" text-cyan-700">
-        hiiiiiiiiii
-    </div>
+<body class="">
+
+    <header class=" bg-transparent p-5 sticky top-0">
+        <nav class="bg-secondary flex p-5 rounded-full align-middle justify-between">
+            <div class="flex items-center gap-1">
+                <a class="flex items-center gap-1" href="">
+                    <img class="w-12 h-12 ml-4 rounded-full" src="public\IMG\taxi.svg" alt="monGrandtaxi">
+                    <h1 class="text-primary text-lg font-semibold max-md:hidden">monGrandtaxi</h1>
+                </a>
+            </div>
+            <div class="flex items-center gap-3">
+                <div id="user-nav">
+                    <div class="flex items-center gap-1">
+                        <img class="w-12 h-12" src="public\IMG\user_av.png" alt="">
+                        <h1>User name</h1>
+                        <ion-icon id="roll-down" class="" name="chevron-down-outline"></ion-icon>
+                        <ion-icon id="roll-up" class="hidden" name="chevron-up-outline"></ion-icon>
+                    </div>
+                    <ul id="user-menu" class="absolute z-10 flex flex-col bg-white mt-5 p-4 drop-shadow-lg gap-2 hidden">
+                        <li>
+                            <a class="inline-flex" href="">
+                                <ion-icon class="text-2xl me-2" name="person-outline"></ion-icon>My profile</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a class="inline-flex" href="">
+                                <ion-icon class="text-2xl me-2" name="log-out-outline"></ion-icon>Log in</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex items-center gap-3 mr-4 text-lg text-white font-semibold">
+                    <a class="inline-flex" href=""><ion-icon class="text-2xl" name="time-outline"></ion-icon></a>
+                    <a class="inline-flex" href=""><ion-icon class="text-2xl" name="ticket-outline"></ion-icon></a>
+                </div>
+                <div class="flex items-center gap-3 mr-4 text-lg text-white font-semibold">
+                    <a class="inline-flex" href="">Sign up</a> 
+                    <a class="inline-flex" href=""><ion-icon class="text-2xl" name="log-in-outline"></ion-icon></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+    <!--icones component-->
+    <!--  <ion-icon name=""></ion-icon>  -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!--/icones component-->
+    <script src="public\js\app.js"></script>
 </body>
 </html>
