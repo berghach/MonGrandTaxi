@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Styles -->
-    <link rel="stylesheet" href="{{asset('css\app.css')}}">
+    <link rel="stylesheet" href="{{asset('css\output.css')}}">
 
     <title>Document</title>
 </head>
 <body class="">
-    <h1 class="">
-        welcome!
-    </h1>
+    @include('layouts.navigation');
+
+    @include('layouts.footer');
+    @include('layouts.scripts');
 </body>
 </html>
