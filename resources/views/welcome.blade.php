@@ -14,20 +14,14 @@
         
     </head>
     <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+        <div class="flex flex-col justify-center items-center h-screen bg-secondary">
+            <div>
+                <x-app-logo />
+            </div>
+            <div class="flex max-md:flex-col justify-center max-md:items-center gap-3 w-screen">
+                <a href="{{ route('login') }}" class="font-semibold text-white flex justify-center w-1/3 rounded-lg hover:bg-cyan-600 bg-cyan-950 p-3 transition ease-in-out duration-150">Log in</a>
+                <a href="{{ route('register') }}" class="font-semibold text-white flex justify-center w-1/3 rounded-lg hover:bg-cyan-600 bg-cyan-950 p-3 transition ease-in-out duration-150">Sign up</a>
+            </div>
         </div>
     </body>
 </html>
