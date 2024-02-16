@@ -34,13 +34,22 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'user_role' => ['required'],
+            'phone_number' => ['required', 'string', 'regex:/^\+\d{1}\s?\(\d{3}\)\s?\d{3}-\d{4}$/'],
+            'car_type' => ['required_if:user_role,driver'],
+            'car_immat' => ['nullable', 'string', 'alpha_num', 'required_if:user_role,driver']
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'fullname' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'phone_number' => $request->phone_number,
+            'user_role' => $request->user_role,
+            'car_type' => $request->car_type ?? null, 
+            'car_immat' => $request->car_immat ?? null, 
         ]);
+        
 
         event(new Registered($user));
 

@@ -15,6 +15,7 @@
     </head>
     <body class="font-sans antialiased">
         @include('layouts.navigation')
+        
 
         <!-- Page Heading -->
         
