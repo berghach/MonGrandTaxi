@@ -16,9 +16,20 @@
     <body class="font-sans antialiased">
         @include('layouts.navigation')
         
-
         <!-- Page Heading -->
-        
+        @if (isset($header)&& Auth::User()->user_role === 'admin')
+            <header class="bg-primary shadow-lg">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif  
+        @if (Auth::User()->user_role === 'passenger')
+            @include('layouts.search-form')
+        @endif
+        @if (Auth::User()->user_role === 'driver')
+            @include('layouts.schedule-form')
+        @endif
 
         <!-- Page Content -->
         <main>

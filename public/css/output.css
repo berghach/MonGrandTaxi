@@ -998,6 +998,10 @@ video {
   padding-inline-end: 1rem;
 }
 
+.ps-2 {
+  padding-inline-start: 0.5rem;
+}
+
 .ps-3 {
   padding-inline-start: 0.75rem;
 }
@@ -1016,10 +1020,6 @@ video {
 
 .pt-6 {
   padding-top: 1.5rem;
-}
-
-.ps-2 {
-  padding-inline-start: 0.5rem;
 }
 
 .text-center {
@@ -1187,16 +1187,16 @@ video {
   outline-width: 2px;
 }
 
+.outline-amber-400 {
+  outline-color: #fbbf24;
+}
+
 .outline-slate-400 {
   outline-color: #94a3b8;
 }
 
 .outline-teal-500 {
   outline-color: #14b8a6;
-}
-
-.outline-amber-400 {
-  outline-color: #fbbf24;
 }
 
 .ring-1 {
