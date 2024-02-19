@@ -15,17 +15,22 @@
     </head>
     <body class="font-sans antialiased">
         @include('layouts.navigation')
+        @php
+            // Fetch cities data directly in the layout
+            $citiesController = new \App\Http\Controllers\CitiesController();
+            $citiesData = $citiesController->getCitiesData();
+        @endphp
         
         <!-- Page Heading -->
-        @if (isset($header)&& Auth::User()->user_role === 'admin')
+        @if (isset($header)&& (Auth::User()->user_role === 'admin' || Auth::User()->user_role === 'driver'))
             <header class="bg-primary shadow-lg">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="flex gap-5 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
         @endif  
         @if (Auth::User()->user_role === 'passenger')
-            @include('layouts.search-form')
+            @include('layouts.search-form', ['cities' => $citiesData])
         @endif
         @if (Auth::User()->user_role === 'driver')
             @include('layouts.schedule-form')

@@ -3,15 +3,17 @@
         <div class=" bg-yellow-100 rounded-lg p-3 w-1/4 max-md:w-full">
             <select class="bg-yellow-100 focus:outline-none w-full" id="startCity" name="startCity" required>
                 <option value="" disabled selected>Start city</option>
-                <option value="City A">City A</option>
-                <option value="City B">City B</option>
+                @foreach ($cities as $item)
+                    <option value="{{$item}}">{{$item}}</option>
+                @endforeach
             </select>
         </div>
         <div class="bg-yellow-100 rounded-lg p-3 w-1/4 max-md:w-full">
             <select class="bg-yellow-100 focus:outline-none w-full" id="destination" name="destination" required>
                 <option value="" disabled selected>Destination</option>
-                <option value="City X">City X</option>
-                <option value="City Y">City Y</option>
+                @foreach ($cities as $item)
+                    <option value="{{$item}}">{{$item}}</option>
+                @endforeach
             </select>
         </div>
         <div class="flex flex-col bg-yellow-100 p-3 w-1/4 rounded-lg max-md:w-full">

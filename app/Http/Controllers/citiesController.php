@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class citiesController extends Controller
 {
-    public static function getCities(){
+    public function getCitiesData(){
         // API endpoint
         $apiEndpoint = 'https://madina.ysnirix.xyz/api/cities?format=json';
 
@@ -26,8 +26,7 @@ class citiesController extends Controller
             $cities[] = $city['name'];
         }
 
-        return view('layouts.app', compact('cities'));
-
+        return $cities;
     }
     
 }
