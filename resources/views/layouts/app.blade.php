@@ -35,6 +35,9 @@
         @if (Auth::User()->user_role === 'driver')
             @include('layouts.schedule-form')
         @endif
+        @if (Auth::User()->user_role === 'admin')
+            @include('layouts.route-form', ['cities' => $citiesData])
+        @endif
 
         <!-- Page Content -->
         <main>
