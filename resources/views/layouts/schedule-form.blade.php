@@ -1,13 +1,15 @@
 <div class=" flex justify-center w-screen">
     <form action="" method="get" class="flex max-md:flex-col justify-center items-center gap-2 bg-primary p-4 w-3/4  rounded-2xl">
         <!-- for admin -->
-        <div class=" bg-yellow-100 rounded-lg p-3 w-1/4 max-md:w-full">
-            <input class="bg-yellow-100 focus:outline-none w-full" list="drivers" type="text" placeholder="Driver" value="">
-            <datalist class="bg-yellow-100 focus:outline-none w-full" id="drivers" name="drivers" required>
-                <option value="email1">driver 1</option>
-                <option value="email2">driver 2</option>
-            </datalist>
-        </div>
+        @if (Auth::User()->user_role == 'admin')
+            <div class=" bg-yellow-100 rounded-lg p-3 w-1/4 max-md:w-full">
+                <input class="bg-yellow-100 focus:outline-none w-full" list="drivers" type="text" placeholder="Driver" value="">
+                <datalist class="bg-yellow-100 focus:outline-none w-full" id="drivers" name="drivers" required>
+                    <option value="email1">driver 1</option>
+                    <option value="email2">driver 2</option>
+                </datalist>
+            </div>
+        @endif
         <!-- /for admin -->
         <div class=" bg-yellow-100 rounded-lg p-3 w-1/4 max-md:w-full">
             <select class="bg-yellow-100 focus:outline-none w-full" id="route" name="route" required>

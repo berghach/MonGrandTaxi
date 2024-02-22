@@ -1,6 +1,6 @@
 <x-app-layout>
     
-    <div class=" flex flex-wrap w-full bg-cyan-300 p-3 rounded-xl items-center shadow-xl">
+    <div class=" flex flex-wrap w-full -z-10 bg-cyan-300 p-3 rounded-xl items-center shadow-xl">
         <img class=" w-20 h-20 rounded-full" src="public\IMG\user_av.png" alt="Travel Image">
         <div class=" flex grow ps-4 pt-3 gap-3">
             <div class=" flex flex-col items-center py-2">

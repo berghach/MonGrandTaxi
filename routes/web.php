@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\routeController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +20,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/homepage', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('homepage');
+// Route::get('/homepage', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('homepage');
+
+Route::get('/homepage', [routeController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('homepage');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::post('/homepage/store',[routeController::class, 'store'])->name('route.add');
+
+// Route::middleware('admin')->group(function(){
+//     Route::get('/routes', [routeController::class, 'index'])->name('homepage');
+
+// });
 
 require __DIR__.'/auth.php';
