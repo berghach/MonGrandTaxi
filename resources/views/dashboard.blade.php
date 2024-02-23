@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <header class="bg-primary shadow-lg">
+        <header class=" flex items-center gap-8 bg-primary shadow-lg my-3">
             <div class="flex gap-5 max-w-7xl my-3 py-6 px-4 sm:px-6 lg:px-8">
                 <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                     {{ __('Dashboard') }}
@@ -9,6 +9,20 @@
                     {{__(Auth::User()->user_role)}}
                 </h3>
             </div>
+            <ul class=" flex gap-6">
+                <a href="#">
+                    <li>Routes</li>
+                </a>
+                <a href="#">
+                    <li>Schadules</li>
+                </a>
+                <a href="#">
+                    <li>Drivers</li>
+                </a>
+                <a href="#">
+                    <li>Passengers</li>
+                </a>
+            </ul>
         </header>
         @if (Auth::User()->user_role === 'admin')
             @if (session()->has('success'))
@@ -20,8 +34,10 @@
             <section class=" max-md:flex max-md:flex-col md:grid md:grid-cols-4 p-7 gap-3">
                 @include('layouts.route-card')
             </section>
-            @foreach ($users as $user)
-                <h1>{{$user->fullname}}</h1><br>
+            @foreach ($users as $key=>$user)
+                @if ($user['user_role']=='passenger')
+                    <h1>{{$user->fullname}}:{{$user->user_role}}</h1><br>
+                @endif
             @endforeach
         @endif
     </x-slot>

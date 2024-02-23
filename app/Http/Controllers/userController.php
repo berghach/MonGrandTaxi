@@ -7,8 +7,8 @@ use App\Models\User;
 
 class userController extends Controller
 {
-    public function index(){
-        $users = User::all();
-        return view("dashboard", compact('users'));
-    }
+    // public function index(){
+    //     $users = User::all();
+    //     return view("dashboard", compact('users'));
+    // }
 }

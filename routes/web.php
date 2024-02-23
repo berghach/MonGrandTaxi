@@ -20,13 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/homepage', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('homepage');
+Route::get('/homepage', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('homepage');
 
-Route::get('/homepage', [routeController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('homepage');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -35,10 +33,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/homepage/store',[routeController::class, 'store'])->name('route.add');
-
-// Route::middleware('admin')->group(function(){
-//     Route::get('/routes', [routeController::class, 'index'])->name('homepage');
-
-// });
 
 require __DIR__.'/auth.php';

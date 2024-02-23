@@ -23,7 +23,7 @@
         @endif  
         
         @if (Auth::User()->user_role === 'passenger')
-            @include('layouts.search-form', ['cities' => $citiesData])
+            @include('layouts.search-form')
         @endif
         @if (Auth::User()->user_role === 'driver')
             @include('layouts.schedule-form')

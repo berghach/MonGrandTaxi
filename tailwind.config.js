@@ -4,7 +4,7 @@ export default {
             "./src/**/*.{html,js,php}",
             "./src/*.{html,js,php}",
             "index.html",
-            "resources/views/welcome.blade.php",
+            "resources/views/*.blade.php",
             "resources/views/layouts/*.blade.php",
             "resources/views/components/*.blade.php"
           ],
