@@ -25,4 +25,6 @@ class routeController extends Controller
 
         return redirect()->route('homepage')->with('success', 'route added successfully');
     }
+
+    // public function update()
 }
