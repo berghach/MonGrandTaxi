@@ -1,15 +1,10 @@
-@php
-    // Fetch cities data directly in the layout
-    $citiesController = new \App\Http\Controllers\CitiesController();
-    $citiesData = $citiesController->getCitiesData();
-@endphp
 <div class=" flex justify-center w-screen">
     <form action="{{route('route.add')}}" method="post" class="flex max-md:flex-col justify-center items-center gap-2 bg-primary p-4 w-3/4  rounded-2xl">
         @csrf
         <div class=" bg-yellow-100 rounded-lg p-3 w-1/4 max-md:w-full">
             <select class="bg-yellow-100 focus:outline-none w-full" id="start_city" name="start_city" required>
                 <option value="" disabled selected>Start city</option>
-                @foreach ($citiesData as $item)
+                @foreach ($cities as $item)
                     <option value="{{$item}}">{{$item}}</option>
                 @endforeach
             </select>
@@ -17,7 +12,7 @@
         <div class="bg-yellow-100 rounded-lg p-3 w-1/4 max-md:w-full">
             <select class="bg-yellow-100 focus:outline-none w-full" id="arrive_city" name="arrive_city" required>
                 <option value="" disabled selected>Destination</option>
-                @foreach ($citiesData as $item)
+                @foreach ($cities as $item)
                     <option value="{{$item}}">{{$item}}</option>
                 @endforeach
             </select>

@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 use App\Models\Route;
 class routeController extends Controller
 {
-    public function index(){
-        $routes = Route::all();
-        return view("dashboard",compact('routes'));
-    }
-
     public function store(Request $request){
         $data = $request->validate([
             'start_city' => 'required',
@@ -25,6 +20,20 @@ class routeController extends Controller
 
         return redirect()->route('homepage')->with('success', 'route added successfully');
     }
+    public function update(Route $route, Request $request){
+        $data = $request->validate([
+            'start_city' => 'required',
+            'arrive_city' => 'required',
+            'duration' => 'required',
+            'price' => 'required'
+        ]);
+        $route->update($data);
 
-    // public function update()
+        return redirect()->route('homepage')->with('success', 'route edited successfully');
+    }
+    public function delete(Route $route){
+        $route->delete();
+        // dd($route);
+        return redirect()->route('homepage')->with('success','route deleted successfully');
+    }
 }

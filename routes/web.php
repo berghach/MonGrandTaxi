@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\routeController;
+use App\Http\Controllers\scheduleController;
 use App\Http\Controllers\userController;
 
 /*
@@ -33,5 +34,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/homepage/store',[routeController::class, 'store'])->name('route.add');
+Route::delete('/homepage/delete/{route}', [routeController::class, 'delete'])->name('route.delete');
+Route::post('/homepage/store-schedule',[scheduleController::class, 'store'])->name('schedule.add');
+
 
 require __DIR__.'/auth.php';

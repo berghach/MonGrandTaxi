@@ -24,21 +24,24 @@
                 </a>
             </ul>
         </header>
+        {{-- for admin --}}
         @if (Auth::User()->user_role === 'admin')
             @if (session()->has('success'))
                 <div>
                     {{session('success')}}
                 </div>
             @endif
-            @include('layouts.route-form')
+            @include('layouts.route-form', ['cities', $cities])
             <section class=" max-md:flex max-md:flex-col md:grid md:grid-cols-4 p-7 gap-3">
                 @include('layouts.route-card')
             </section>
-            @foreach ($users as $key=>$user)
-                @if ($user['user_role']=='passenger')
-                    <h1>{{$user->fullname}}:{{$user->user_role}}</h1><br>
-                @endif
-            @endforeach
+        @endif
+        {{-- for driver --}}
+        @if (Auth::User()->user_role === 'driver')
+            @include('layouts.schedule-form', ['routes', $routes])
+            <section class=" max-md:flex max-md:flex-col md:grid md:grid-cols-4 p-7 gap-3">
+                @include('layouts.schedule-card')
+            </section>
         @endif
     </x-slot>
 </x-app-layout>
